@@ -1,4 +1,4 @@
-Here's a description you can use for your GitHub repository:
+![image](https://github.com/user-attachments/assets/d1140a56-5572-43ff-9b03-e0282fb69b13)Here's a description you can use for your GitHub repository:
 
 ---
 
@@ -18,4 +18,4 @@ This project is a comprehensive solution for monitoring daily data usage, live d
 - **Frontend**: HTML, CSS, JavaScript
 - **Backend**: Node.js (Express), Python
 
-<img align="right" alt="Coding" width="400" src="https://i.gifer.com/75ez.gif">
+<img align="right" alt="Coding" width="400" src="https://cdn.dribbble.com/users/8619169/screenshots/16116886/media/a63d64bcccad878cb9dfdb9a9f6b6416.gif">
