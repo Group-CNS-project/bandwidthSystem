@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Network Data</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #201e43;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #ffffff;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .container {
+            background: #312f50;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            width: 1800px;
+            height: 500px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .data {
+            font-size: 30px;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .data i {
+            margin-right: 10px;
+        }
+
+        .data span {
+            font-weight: bold;
+        }
+
+        meter {
+            width: 100%;
+            height: 20px;
+            border-radius: 10px;
+            background: #e0e0e0;
+            border: 2px solid #ddd;
+            position: relative;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        meter::-webkit-meter-bar {
+            background: transparent;
+        }
+
+        meter::-webkit-meter-optimum-value {
+            background: linear-gradient(90deg, #4caf50 0%, #4caf50 50%, #676767 50%, #f1f1f1 100%);
+            transition: width 0.5s ease;
+        }
+
+        .meter-label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            color: #ffffff;
+            pointer-events: none;
+        }
+
+    </style>
+
+</head>
+
+<body>
+<section id="dash-board-section">
+    <div class="container text-center">
+
+        <h1>Monitor Data Usage</h1>
+
+        <div class="row">
+            <div class="col">
+                <div class="data"><h1>Download Meter</h1><i class="fas fa-download"></i> <span id="new_received">0.00 MB</span></div>
+                <meter id="meter_new_received" min="0" max="10" value="0"></meter>
+                <div class="data"><h1>Upload Meter</h1><i class="fas fa-upload"></i> <span id="new_sent">0.00 MB</span></div>
+                <meter id="meter_new_sent" min="0" max="10" value="0"></meter>
+                <div class="data"><h1>Upload & Download Meter</h1><i class="fas fa-exchange-alt"></i> <span id="new_total">0.00 MB</span></div>
+                <meter id="meter_new_total" min="0" max="10" value="0"></meter>
+            </div>
+            <div class="col">
+                <div class="data"><h2>Total Download</h2> <span id="total_received">0.00 MB</span></div>
+                <div class="data"><h2>Total Upload</h2><span id="total_sent">0.00 MB</span></div>
+                <div class="data"><h2>Total</h2> <span id="total_data">0.00 MB</span></div>
+                <br><br><br><br>
+                <button id="startButton" class="btn btn-primary">Start</button>
+                <!--<a href="http://127.0.0.1:5000">test</a>-->
+            </div>
+        </div>
+
+    </div>
+</section>
+<script >
+    let intervalId;
+    let hourlyData = [];
+    let hourStartTime = Date.now();
+    let hourlyDownload = 0;
+    let hourlyUpload = 0;
+
+    async function fetchNetworkData() {
+        const response = await fetch('/network_data');
+        const data = await response.json();
+
+        document.getElementById('new_received').innerText = data.mb_new_received.toFixed(2) + ' MB';
+        document.getElementById('new_sent').innerText = data.mb_new_sent.toFixed(2) + ' MB';
+        document.getElementById('new_total').innerText = data.mb_new_total.toFixed(2) + ' MB';
+        document.getElementById('total_received').innerText = data.mb_total_received.toFixed(2) + ' MB';
+        document.getElementById('total_sent').innerText = data.mb_total_sent.toFixed(2) + ' MB';
+        document.getElementById('total_data').innerText = data.mb_total.toFixed(2) + ' MB';
+
+        document.getElementById('meter_new_received').value = data.mb_new_received;
+        document.getElementById('meter_new_sent').value = data.mb_new_sent;
+        document.getElementById('meter_new_total').value = data.mb_new_total;
+
+        hourlyDownload += data.mb_new_received;
+        hourlyUpload += data.mb_new_sent;
+
+        const now = Date.now();
+        if (now - hourStartTime >= 3600000) {
+            hourlyData.push({
+                download: hourlyDownload,
+                upload: hourlyUpload,
+                timestamp: new Date(hourStartTime).toLocaleString()
+            });
+
+            // Reset hourly data
+            hourStartTime = now;
+            hourlyDownload = 0;
+            hourlyUpload = 0;
+
+            // Log hourly data
+            console.log(hourlyData);
+        }
+    }
+
+    document.getElementById('startButton').addEventListener('click', () => {
+        if (!intervalId) {
+            intervalId = setInterval(fetchNetworkData, 1000);
+        }
+    });
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/*
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #201e43;
+    margin: 0;
+    padding: 0;
+    !*display: flex;*!
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #ffffff;
+    animation: fadeIn 2s ease-in-out;
+}
+*/
+
+.container {
+    background: #312f50;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 100%;
+    height: 120%;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.data {
+    font-size: 30px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.data i {
+    margin-right: 10px;
+}
+
+.data span {
+    font-weight: bold;
+}
+
+meter {
+    width: 100%;
+    height: 10%;
+    border-radius: 10px;
+    background: #e0e0e0;
+    border: 2px solid #ddd;
+    position: relative;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+meter::-webkit-meter-bar {
+    background: transparent;
+}
+
+meter::-webkit-meter-optimum-value {
+    background: linear-gradient(90deg, #4caf50 0%, #4caf50 50%, #676767 50%, #f1f1f1 100%);
+    transition: width 0.5s ease;
+}
+
+.meter-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: #ffffff;
+    pointer-events: none;
+}
