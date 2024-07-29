@@ -1,4 +1,4 @@
-Here's a description you can use for your GitHub repository:
+
 
 ---
 
@@ -8,7 +8,8 @@ This project is a comprehensive solution for monitoring daily data usage, live d
 
 ## Features
 
-- **Daily Data Usage Monitoring**: Track and display daily data usage statistics.
+- **Daily Data Usage Monitoring**: Track and display daily data usage statistics. 
+<img align="right" alt="Coding" width="400" src="https://cdn.dribbble.com/users/8619169/screenshots/16116886/media/a63d64bcccad878cb9dfdb9a9f6b6416.gif">
 - **Live Data Usage Monitoring**: Real-time monitoring of data usage with updates.
 - **Live Location Tracking**: Monitor and display the live location of users.
 - **IP Address Display**: Show the user's IP address and map it using Google Maps integration.
@@ -18,4 +19,3 @@ This project is a comprehensive solution for monitoring daily data usage, live d
 - **Frontend**: HTML, CSS, JavaScript
 - **Backend**: Node.js (Express), Python
 
-<img align="right" alt="Coding" width="400" src="https://i.gifer.com/75ez.gif">
