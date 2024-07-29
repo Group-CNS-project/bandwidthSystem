@@ -19,3 +19,6 @@ This project is a comprehensive solution for monitoring daily data usage, live d
 - **Frontend**: HTML, CSS, JavaScript
 - **Backend**: Node.js (Express), Python
 
+## Group Project
+
+This project was developed as a collaborative effort among team members. Each contributor played a vital role in implementing different aspects of the system.
