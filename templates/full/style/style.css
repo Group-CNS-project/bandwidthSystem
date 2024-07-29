@@ -149,26 +149,84 @@ body {
     border-radius: 1rem 1rem 1rem 1rem;
 }
 
-/*--------------History page style-----------------*/
+
 /*--------------History page style-----------------*/
 #history-container {
     width: 80%;
-    height: 50rem; /* Fixed height for the container */
+    height: 50rem;
     background-color: var(--bg-color1);
     position: absolute;
     left: 10%;
+    top: 150%;
     border-radius: 1rem 1rem 1rem 1rem;
-    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
 }
 
 .table-container {
-    overflow-y: auto; /* Enable scrolling for the table */
-    height: 100%; /* Ensure it fills the container */
+    overflow-y: auto;
+    height: 100%;
 }
 
 .table {
     color: white;
-    width: 100%; /* Ensure the table fits within the container */
+    width: 100%;
 }
+
+#search-bar {
+    color: var(--white-color);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Align items to the right */
+    width: 80%;
+    height: 40%;
+    background-color: var(--bg-color1);
+    position: absolute;
+    left: 10%;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    transition: height 0.3s ease, width 0.3s ease; /* Animation for expanding */
+}
+
+#search-input {
+    width: 0;
+    height: 2rem;
+    padding: 0;
+    border: 2px solid var(--white-color);
+    border-radius: 0.5rem;
+    background-color: var(--bg-color);
+    color: var(--white-color);
+    opacity: 0;
+    transition: width 0.3s ease, opacity 0.3s ease;
+    margin-left: 1rem;
+}
+
+#search-bar:hover #search-input {
+    width: 15rem;
+    opacity: 1;
+    padding: 0 0.5rem;
+}
+
+#search-input::placeholder {
+    color: var(--white-color);
+}
+
+#search-bar a {
+    text-decoration: none;
+    color: var(--white-color); /* Replace with your preferred color */
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-right: 1rem; /* Space between the link and search box */
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#search-bar a:hover {
+    background-color: var(--bg-color1); /* Replace with your hover color */
+    color: var(--bg-color); /* Replace with your hover text color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for added effect */
+}
+
+

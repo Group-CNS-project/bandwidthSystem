@@ -1,0 +1,79 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--back-ground-color);
+    margin: 0;
+    padding: 20px;
+    color: var(--white-color);
+}
+:root {
+    --bg-color: #201E43;
+    --bg-color1: #ffffff;
+    --theme-color1: #323846 ;
+    --back-ground-color: #041632;
+    --white-color: #ffff;
+    --black-color: #000000FF;
+}
+
+.chart-container {
+    max-width: 1000px; /* Increase the maximum width of the chart container */
+    margin: 0 auto;
+    text-align: center;
+}
+
+.chart {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    height: 400px; /* Increase the height of the chart */
+    background-color: var(--theme-color1);
+    border-radius: 5px;
+    padding: 10px;
+    position: relative;
+}
+
+.bar {
+    width: 100px; /* Increase the width of each bar */
+    background-color: #4caf50;
+    border-radius: 5px;
+    position: relative;
+}
+
+.bar::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.date-axis {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.date-label {
+    font-size: 16px; /* Increase the font size of date labels */
+    color: var(--white-color);
+    width: 100px; /* Adjust width to match increased bar width */
+    text-align: center;
+    white-space: nowrap;
+}
+.back-link {
+    position: fixed;
+    left: 40px;
+    top: 10px;
+    font-size: 24px;
+    color: var(--white-color);
+    text-decoration: none;
+}
+
+.back-link:hover {
+    box-shadow: rgb(20, 51, 209) 0px 3px 8px;
+}
