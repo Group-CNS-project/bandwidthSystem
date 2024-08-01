@@ -2,9 +2,107 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Title</title>
+  <link rel="stylesheet" href="templates/style/userProfile.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-$END$
+<div id="custom-alert" class="custom-alert">
+  <span id="alert-message"></span>
+</div>
+
+<div class="settings-page">
+  <div class="back-button-container">
+    <a href="index.html" class="back-button">
+      <i class="fas fa-arrow-left"></i>
+    </a>
+  </div>
+  <!-- User ID Section -->
+
+  <div class="settings-container">
+    <h1 class="page-title">Account</h1>
+    <div class="user-id-container">
+      <p><strong>User ID:</strong> <span id="user-id"></span></p>
+    </div>
+    <div class="settings-section">
+      <h2 class="settings-title">General Information</h2>
+      <!-- Name -->
+      <div class="non-active-form">
+        <p id="name-view"><strong>Name:</strong> John Doe</p>
+        <input type="text" id="name-edit" class="edit-input" value="John Doe" style="display:none;">
+        <i class="fas fa-pen edit-icon" onclick="editField('name')"></i>
+        <button class="save-button" id="name-save" style="display:none;" onclick="saveField('name')">Save</button>
+      </div>
+      <div class="non-active-form">
+        <p id="username-view"><strong>Username:</strong> john.doe</p>
+        <input type="text" id="username-edit" class="edit-input" value="john.doe" style="display:none;">
+        <i class="fas fa-pen edit-icon" onclick="editField('username')"></i>
+        <button class="save-button" id="username-save" style="display:none;" onclick="saveField('username')">Save</button>
+      </div>
+      <div class="non-active-form">
+        <p id="contact-view"><strong>Contact:</strong> 123-456-7890</p>
+        <input type="text" id="contact-edit" class="edit-input" value="123-456-7890" style="display:none;">
+        <i class="fas fa-pen edit-icon" onclick="editField('contact')"></i>
+        <button class="save-button" id="contact-save" style="display:none;" onclick="saveField('contact')">Save</button>
+      </div>
+      <div class="non-active-form">
+        <p id="email-view"><strong>Email:</strong> john.doe@example.com</p>
+        <input type="text" id="email-edit" class="edit-input" value="john.doe@example.com" style="display:none;">
+        <i class="fas fa-pen edit-icon" onclick="editField('email')"></i>
+        <button class="save-button" id="email-save" style="display:none;" onclick="saveField('email')">Save</button>
+      </div>
+
+
+    </div>
+
+    <div class="settings-section">
+      <h2 class="settings-title">My profile</h2>
+      <form class="form my-form">
+        <div class="img-upload-container">
+          <label class="img-upload btn btn-bwm">
+            <input id="image-select" type="file" accept=".jpg, .png, .jpeg, .gif" onchange="previewImage(event)" width="200px">
+            <span>Change Your Profile Picture</span>
+          </label>
+          <div class="img-preview-container">
+            <div class="img-preview" id="img-preview" style="background-image: url('http://www.personalbrandingblog.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png');"></div>
+          </div>
+        </div>
+        <div class="form-submit">
+          <button class="btn button full" type="submit" disabled>Save New Picture</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="settings-section">
+      <h2 class="settings-title">Password</h2>
+      <form class="form my-form">
+        <div class="form-group">
+          <div class="input-group">
+            <input name="currentPassword" placeholder="Old Password" type="password" class="form-control" autocomplete="current-password">
+            <span class="focus-input"></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <input name="password" placeholder="New Password" type="password" class="form-control" autocomplete="new-password">
+            <span class="focus-input"></span>
+          </div>
+        </div>
+        <div class="form-submit right">
+          <button id="submit" class="btn button full" type="submit">Change Password</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="templates/full/backend/passwordChange.js"></script>
+<script src="templates/script/sweetalert.js"></script>
+<script src="templates/full/backend/userUpdate.js"></script>
+<script src="templates/full/backend/userProfileFetch.js"></script>
+<script src="templates/script/userProfile.js"></script>
+
+
 </body>
 </html>

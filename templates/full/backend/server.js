@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const mysql = require('mysql2');
 const historyRoutes = require('./api/historyRoutes'); // Import routes
+const userRoutes = require('./api/user');
+const userUpdate = require('./api/updateRoutes');
 
 const app = express();
 const port = 3000;
@@ -33,6 +35,8 @@ app.use((req, res, next) => {
 
 // Use the routes from historyRoutes.js
 app.use('/api', historyRoutes);
+app.use('/api', userRoutes);
+app.use('/api', userUpdate);
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);

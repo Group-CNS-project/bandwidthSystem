@@ -15,6 +15,7 @@ body {
 }
 
 .chart-container {
+    top: 20rem;
     max-width: 1000px; /* Increase the maximum width of the chart container */
     margin: 0 auto;
     text-align: center;

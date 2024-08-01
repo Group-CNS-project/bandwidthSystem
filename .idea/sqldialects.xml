@@ -2,5 +2,8 @@
 <project version="4">
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/templates/full/backend/api/historyRoutes.js" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/templates/full/backend/api/updateRoutes.js" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/templates/full/backend/api/user.js" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/templates/full/data-base.sql" dialect="MySQL" />
   </component>
 </project>
