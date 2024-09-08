@@ -30,7 +30,7 @@
             <a class="nav-link" href="#"><i class="fas fa-clock"></i></a>
         </li>
     </ul>
-    <a id="log-out-button" class="nav-link" href="#"><i class="fas fa-sign-out-alt"></i></a>
+    <a id="log-out-button" class="nav-link" href="auth.html"><i class="fas fa-sign-out-alt"></i></a>
 </nav>
 
 <section>
@@ -127,5 +127,19 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#log-out-button').click(function(e) {
+            e.preventDefault(); // Prevent the default anchor behavior
+
+            // Show confirmation dialog
+            if (confirm('Are you sure you want to log out?')) {
+                // Navigate to auth.html if user clicks OK
+                window.location.href = $(this).attr('href');
+            }
+            // If user clicks Cancel, do nothing
+        });
+    });
+</script>
 </body>
 </html>

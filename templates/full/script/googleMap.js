@@ -10,3 +10,4 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 L.marker([6.7741, 79.8815]).addTo(map)
     .bindPopup('Panadura')
     .openPopup();
+

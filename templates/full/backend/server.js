@@ -4,12 +4,15 @@ const mysql = require('mysql2');
 const historyRoutes = require('./api/historyRoutes'); // Import routes
 const userRoutes = require('./api/user');
 const userUpdate = require('./api/updateRoutes');
+const authRoutes = require('../backend/routes/authRoutes');
 
 const app = express();
 const port = 3000;
 
 app.use(cors());
 app.use(express.json());
+app.use(cors());
+
 
 // Database connection
 const db = mysql.createConnection({
@@ -37,6 +40,7 @@ app.use((req, res, next) => {
 app.use('/api', historyRoutes);
 app.use('/api', userRoutes);
 app.use('/api', userUpdate);
+app.use('/auth', authRoutes);
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);

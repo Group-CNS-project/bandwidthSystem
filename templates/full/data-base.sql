@@ -13,6 +13,11 @@ create table if not exists User_account(
     password VARCHAR(10) NOT NULL,
     image LONGBLOB
     );
+create table if not exists users(
+                                    name varchar(200),
+                                    email varchar(200),
+                                    password varchar(200)
+);
 create table if not exists history(
     date_use Date NOT NULL,
     total_download int NOT NULL,
